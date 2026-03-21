@@ -306,7 +306,7 @@ const charities = [
     category: "blind",
     description: "Provides guide dogs",
     donateUrl: "https://www.guidedogs.org.uk/donate",
-    logoUrl: "https://www.google.com/s2/favicons?sz=128&domain_url=guidedogs.org.uk",
+    logoUrl: "https://www.guidedogs.org.uk/favicon.ico",
   },
   {
     name: "RNIB",
@@ -320,7 +320,8 @@ const charities = [
     category: "blind",
     description: "Helps blind veterans",
     donateUrl: "https://www.blindveterans.org.uk/support-us/donate",
-    logoUrl: "https://www.google.com/s2/favicons?sz=128&domain_url=blindveterans.org.uk",
+    logoUrl:
+      "https://app-bvuk-web-umbraco-prod-uks.azurewebsites.net/media/31likd2e/bvuk-logo-strapline-colour-rgb-light-bkgrnd.jpg?&quality=90&width=1200&height=630&ranchor=center&rmode=crop",
   },
 ];
 
