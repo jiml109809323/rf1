@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stalls for Good | Admin</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="Stalls for Good home">
+          <img
+            class="brand-logo"
+            src="./logo-transparent.png"
+            alt="Stalls for Good logo"
+          />
+          <span class="brand-text">Stalls for Good</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./stall.html">Make a Stall</a>
+          <a class="nav-link" href="./donate.html">Donate</a>
+          <a class="nav-link" href="./gallery.html">Gallery</a>
+        </nav>
+      </header>
+
+      <main class="stack-layout">
+        <section class="page-header">
+          <p class="eyebrow">Private review area</p>
+          <h1 class="page-title">Admin Review</h1>
+          <p class="page-subtitle">
+            Enter your admin password to review pending photos before they appear
+            in the gallery.
+          </p>
+        </section>
+
+        <section class="content-panel">
+          <div class="admin-toolbar">
+            <input
+              class="text-input"
+              id="admin-password"
+              type="password"
+              placeholder="Admin password"
+            />
+            <button class="button button-secondary" id="load-pending-button" type="button">
+              Load Pending Photos
+            </button>
+          </div>
+
+          <p class="upload-note" id="admin-status">
+            Pending photos stay hidden from the public gallery until you approve them.
+          </p>
+
+          <div class="gallery-grid" id="pending-gallery-grid">
+            <article class="gallery-item gallery-item-placeholder">
+              <div class="gallery-image-placeholder">Pending photos will appear here after you load them</div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">Made by Robyn and Frances ❤️</footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

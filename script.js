@@ -523,7 +523,9 @@ function setupGalleryPreview() {
   const loadPendingButton = document.querySelector("#load-pending-button");
   const adminStatus = document.querySelector("#admin-status");
 
-  if (!fileInput || !previewCard || !form || !status) {
+  const hasPublicGallery = Boolean(fileInput && previewCard && form && status);
+
+  if (!hasPublicGallery && !pendingGrid && !approvedGrid) {
     return;
   }
 
@@ -685,53 +687,55 @@ function setupGalleryPreview() {
     }
   }
 
-  fileInput.addEventListener("change", () => {
-    const [file] = fileInput.files || [];
+  if (hasPublicGallery) {
+    fileInput.addEventListener("change", () => {
+      const [file] = fileInput.files || [];
 
-    if (!file) {
-      previewCard.innerHTML = `
-        <div class="preview-placeholder">
-          Pick a photo to preview it here before sending it for review.
-        </div>
-      `;
-      return;
-    }
-
-    const previewUrl = URL.createObjectURL(file);
-    previewCard.innerHTML = `
-      <img class="preview-image" src="${previewUrl}" alt="Preview of uploaded stall photo" />
-    `;
-  });
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(form);
-    status.textContent = "Sending your photo for review...";
-
-    fetch("/api/gallery-upload", {
-      method: "PUT",
-      body: formData,
-    })
-      .then(async (response) => {
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.error || "Could not upload your photo.");
-        }
-
-        form.reset();
+      if (!file) {
         previewCard.innerHTML = `
           <div class="preview-placeholder">
-            Your photo was sent for review. It will appear in the gallery once approved.
+            Pick a photo to preview it here before sending it for review.
           </div>
         `;
-        status.textContent = data.message;
+        return;
+      }
+
+      const previewUrl = URL.createObjectURL(file);
+      previewCard.innerHTML = `
+        <img class="preview-image" src="${previewUrl}" alt="Preview of uploaded stall photo" />
+      `;
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      status.textContent = "Sending your photo for review...";
+
+      fetch("/api/gallery-upload", {
+        method: "PUT",
+        body: formData,
       })
-      .catch((error) => {
-        status.textContent = error.message;
-      });
-  });
+        .then(async (response) => {
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.error || "Could not upload your photo.");
+          }
+
+          form.reset();
+          previewCard.innerHTML = `
+            <div class="preview-placeholder">
+              Your photo was sent for review. It will appear in the gallery once approved.
+            </div>
+          `;
+          status.textContent = data.message;
+        })
+        .catch((error) => {
+          status.textContent = error.message;
+        });
+    });
+  }
 
   if (loadPendingButton) {
     loadPendingButton.addEventListener("click", loadPendingGallery);
@@ -748,7 +752,9 @@ function setupGalleryPreview() {
     });
   }
 
-  loadApprovedGallery();
+  if (approvedGrid) {
+    loadApprovedGallery();
+  }
 }
 
 setupSeasonButtons();

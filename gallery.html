@@ -35,12 +35,20 @@
           </p>
         </section>
 
+        <section class="content-panel">
+          <div class="gallery-grid" id="approved-gallery-grid">
+            <article class="gallery-item gallery-item-placeholder">
+              <div class="gallery-image-placeholder">Approved stall photos will appear here soon</div>
+            </article>
+          </div>
+        </section>
+
         <section class="content-panel gallery-layout">
           <div class="gallery-form-block">
             <h2>Submit Your Stall Photo</h2>
             <p class="panel-intro">
               Choose a photo, add your name, and tell us a little about your
-              stall. Your photo should be reviewed before it goes live.
+              stall. Your photo will be reviewed before it goes live.
             </p>
 
             <form class="gallery-form" id="gallery-form">
@@ -91,7 +99,7 @@
             </form>
 
             <p class="upload-note" id="gallery-status">
-              Approved uploads will appear in the public gallery after review.
+              Approved uploads will appear in the gallery after review.
             </p>
           </div>
 
@@ -102,48 +110,6 @@
                 Pick a photo to preview it here before sending it for review.
               </div>
             </div>
-          </div>
-        </section>
-
-        <section class="content-panel">
-          <h2>Approved Gallery</h2>
-          <p class="panel-intro">
-            Approved stall photos can appear here once you have reviewed them.
-          </p>
-          <div class="gallery-grid" id="approved-gallery-grid">
-            <article class="gallery-item gallery-item-placeholder">
-              <div class="gallery-image-placeholder">Approved stall photos will appear here soon</div>
-            </article>
-          </div>
-        </section>
-
-        <section class="content-panel">
-          <h2>Admin Review</h2>
-          <p class="panel-intro">
-            Enter your admin password to review pending photos before they appear
-            in the gallery.
-          </p>
-
-          <div class="admin-toolbar">
-            <input
-              class="text-input"
-              id="admin-password"
-              type="password"
-              placeholder="Admin password"
-            />
-            <button class="button button-secondary" id="load-pending-button" type="button">
-              Load Pending Photos
-            </button>
-          </div>
-
-          <p class="upload-note" id="admin-status">
-            Pending photos stay hidden from the public gallery until you approve them.
-          </p>
-
-          <div class="gallery-grid" id="pending-gallery-grid">
-            <article class="gallery-item gallery-item-placeholder">
-              <div class="gallery-image-placeholder">Pending photos will appear here after you load them</div>
-            </article>
           </div>
         </section>
       </main>
