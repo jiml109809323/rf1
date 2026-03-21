@@ -23,6 +23,212 @@ const seasonalTips = {
   ],
 };
 
+const seasonalRecipes = {
+  spring: [
+    {
+      id: "spring-cupcakes",
+      name: "Cupcakes (Flower Cupcakes)",
+      icon: "🧁",
+      ingredients: ["100g butter", "100g sugar", "2 eggs", "100g flour"],
+      steps: [
+        "Mix butter and sugar",
+        "Add eggs and mix",
+        "Add flour",
+        "Pour into cases",
+        "Bake at 180°C for 15 mins",
+        "Add colourful icing + sprinkles",
+      ],
+    },
+    {
+      id: "spring-lemonade",
+      name: "Lemonade",
+      icon: "🍋",
+      ingredients: ["3 lemons", "100g sugar", "Water"],
+      steps: ["Squeeze lemons", "Mix with sugar", "Add water", "Stir and chill"],
+    },
+    {
+      id: "spring-fruit-skewers",
+      name: "Fruit Skewers",
+      icon: "🍓",
+      ingredients: ["Strawberries", "Grapes", "Banana"],
+      steps: ["Chop fruit", "Stick onto skewers", "Serve fresh"],
+    },
+    {
+      id: "spring-sugar-cookies",
+      name: "Sugar Cookies",
+      icon: "🍪",
+      ingredients: ["100g butter", "100g sugar", "1 egg", "200g flour"],
+      steps: ["Mix everything", "Roll dough", "Cut shapes", "Bake 10 mins"],
+    },
+    {
+      id: "spring-smoothies",
+      name: "Smoothies",
+      icon: "🧃",
+      ingredients: ["Banana", "Berries", "Milk"],
+      steps: ["Put in blender", "Blend", "Pour and serve"],
+    },
+  ],
+  summer: [
+    {
+      id: "summer-ice-lollies",
+      name: "Ice Lollies",
+      icon: "🍦",
+      ingredients: ["Fruit juice"],
+      steps: ["Pour into moulds", "Freeze overnight"],
+    },
+    {
+      id: "summer-cookies",
+      name: "Cookies",
+      icon: "🍪",
+      ingredients: ["100g butter", "100g sugar", "1 egg", "200g flour"],
+      steps: ["Mix everything", "Roll dough", "Cut shapes", "Bake 10 mins"],
+    },
+    {
+      id: "summer-cupcakes",
+      name: "Cupcakes",
+      icon: "🧁",
+      ingredients: ["100g butter", "100g sugar", "2 eggs", "100g flour"],
+      steps: [
+        "Mix butter and sugar",
+        "Add eggs and mix",
+        "Add flour",
+        "Pour into cases",
+        "Bake at 180°C for 15 mins",
+        "Add bright icing + sweets",
+      ],
+    },
+    {
+      id: "summer-fruit-cups",
+      name: "Fruit Cups",
+      icon: "🍉",
+      ingredients: ["Watermelon", "Grapes", "Pineapple"],
+      steps: ["Chop fruit", "Put in cups", "Chill"],
+    },
+    {
+      id: "summer-milkshakes",
+      name: "Milkshakes",
+      icon: "🥤",
+      ingredients: ["Milk", "Ice cream"],
+      steps: ["Blend together", "Pour and serve"],
+    },
+  ],
+  autumn: [
+    {
+      id: "autumn-brownies",
+      name: "Brownies",
+      icon: "🍫",
+      ingredients: [
+        "100g chocolate",
+        "100g butter",
+        "2 eggs",
+        "100g sugar",
+        "50g flour",
+      ],
+      steps: [
+        "Melt chocolate + butter",
+        "Mix in eggs + sugar",
+        "Add flour",
+        "Bake 20 mins",
+      ],
+    },
+    {
+      id: "autumn-apple-slices",
+      name: "Apple Slices with Toffee",
+      icon: "🍎",
+      ingredients: ["Apples", "Toffee sauce"],
+      steps: ["Slice apples", "Drizzle sauce"],
+    },
+    {
+      id: "autumn-cookies",
+      name: "Cookies",
+      icon: "🍪",
+      ingredients: ["100g butter", "100g sugar", "1 egg", "200g flour"],
+      steps: ["Mix everything", "Roll dough", "Cut shapes", "Bake 10 mins"],
+    },
+    {
+      id: "autumn-cupcakes",
+      name: "Cupcakes (Autumn theme)",
+      icon: "🧁",
+      ingredients: ["100g butter", "100g sugar", "2 eggs", "100g flour"],
+      steps: [
+        "Mix butter and sugar",
+        "Add eggs and mix",
+        "Add flour",
+        "Pour into cases",
+        "Bake at 180°C for 15 mins",
+        "Add orange icing",
+      ],
+    },
+    {
+      id: "autumn-hot-apple-drink",
+      name: "Hot Apple Drink",
+      icon: "☕",
+      ingredients: ["Apple juice", "Cinnamon"],
+      steps: ["Heat juice", "Add cinnamon", "Serve warm"],
+    },
+  ],
+  winter: [
+    {
+      id: "winter-hot-chocolate",
+      name: "Hot Chocolate",
+      icon: "☕",
+      ingredients: ["Milk", "Cocoa powder", "Sugar"],
+      steps: ["Heat milk", "Add cocoa + sugar", "Stir"],
+    },
+    {
+      id: "winter-brownies",
+      name: "Brownies",
+      icon: "🍫",
+      ingredients: [
+        "100g chocolate",
+        "100g butter",
+        "2 eggs",
+        "100g sugar",
+        "50g flour",
+      ],
+      steps: [
+        "Melt chocolate + butter",
+        "Mix in eggs + sugar",
+        "Add flour",
+        "Bake 20 mins",
+      ],
+    },
+    {
+      id: "winter-cupcakes",
+      name: "Cupcakes (Christmas)",
+      icon: "🧁",
+      ingredients: ["100g butter", "100g sugar", "2 eggs", "100g flour"],
+      steps: [
+        "Mix butter and sugar",
+        "Add eggs and mix",
+        "Add flour",
+        "Pour into cases",
+        "Bake at 180°C for 15 mins",
+        "Add festive toppings",
+      ],
+    },
+    {
+      id: "winter-cookies",
+      name: "Cookies (Christmas shapes)",
+      icon: "🍪",
+      ingredients: ["100g butter", "100g sugar", "1 egg", "200g flour"],
+      steps: [
+        "Mix everything",
+        "Roll dough",
+        "Cut festive shapes like stars and trees",
+        "Bake 10 mins",
+      ],
+    },
+    {
+      id: "winter-chocolate-bark",
+      name: "Chocolate Bark",
+      icon: "🍬",
+      ingredients: ["Melted chocolate", "Sweets"],
+      steps: ["Melt chocolate", "Spread on tray", "Add sweets", "Let it set"],
+    },
+  ],
+};
+
 const charities = [
   {
     name: "RSPCA",
@@ -138,27 +344,109 @@ function titleCase(value) {
 function setupSeasonButtons() {
   const seasonButtons = document.querySelectorAll(".season-button");
   const panel = document.querySelector("#season-tip-panel");
+  const recipeGrid = document.querySelector("#recipe-grid");
+  const recipeDetailPanel = document.querySelector("#recipe-detail-panel");
 
   if (!seasonButtons.length || !panel) {
     return;
   }
 
+  let activeSeason = "spring";
+  let activeRecipeId = seasonalRecipes.spring[0].id;
+
+  function renderRecipeDetail(seasonKey, recipeId) {
+    if (!recipeDetailPanel) {
+      return;
+    }
+
+    const selectedRecipe = seasonalRecipes[seasonKey].find(
+      (recipe) => recipe.id === recipeId,
+    );
+
+    recipeDetailPanel.innerHTML = `
+      <div class="recipe-detail-header">
+        <span class="recipe-detail-icon">${selectedRecipe.icon}</span>
+        <div>
+          <p class="recipe-detail-season">${titleCase(seasonKey)} recipe</p>
+          <h3>${selectedRecipe.name}</h3>
+        </div>
+      </div>
+
+      <div class="recipe-detail-columns">
+        <section class="recipe-detail-block">
+          <h4>Ingredients</h4>
+          <ul class="recipe-list">
+            ${selectedRecipe.ingredients.map((item) => `<li>${item}</li>`).join("")}
+          </ul>
+        </section>
+
+        <section class="recipe-detail-block">
+          <h4>Steps</h4>
+          <ol class="recipe-list recipe-steps">
+            ${selectedRecipe.steps.map((step) => `<li>${step}</li>`).join("")}
+          </ol>
+        </section>
+      </div>
+    `;
+  }
+
+  function renderRecipeButtons(seasonKey) {
+    if (!recipeGrid) {
+      return;
+    }
+
+    recipeGrid.innerHTML = seasonalRecipes[seasonKey]
+      .map(
+        (recipe) => `
+          <button
+            class="recipe-card ${recipe.id === activeRecipeId ? "is-selected" : ""}"
+            type="button"
+            data-recipe-id="${recipe.id}"
+          >
+            <div class="recipe-icon">${recipe.icon}</div>
+            <h3>${recipe.name}</h3>
+          </button>
+        `,
+      )
+      .join("");
+
+    const recipeButtons = recipeGrid.querySelectorAll(".recipe-card");
+    recipeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeRecipeId = button.dataset.recipeId;
+        renderRecipeButtons(activeSeason);
+        renderRecipeDetail(activeSeason, activeRecipeId);
+      });
+    });
+  }
+
+  function renderSeason(seasonKey) {
+    const tips = seasonalTips[seasonKey];
+    activeSeason = seasonKey;
+    activeRecipeId = seasonalRecipes[seasonKey][0].id;
+
+    panel.innerHTML = `
+      <h3 class="tips-title">${titleCase(seasonKey)} Ideas</h3>
+      <ul class="tips-list">
+        ${tips.map((tip) => `<li>${tip}</li>`).join("")}
+      </ul>
+    `;
+
+    renderRecipeButtons(seasonKey);
+    renderRecipeDetail(seasonKey, activeRecipeId);
+  }
+
   seasonButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const selectedSeason = button.dataset.season;
-      const tips = seasonalTips[selectedSeason];
 
       seasonButtons.forEach((item) => item.classList.remove("is-active"));
       button.classList.add("is-active");
-
-      panel.innerHTML = `
-        <h3 class="tips-title">${titleCase(selectedSeason)} Ideas</h3>
-        <ul class="tips-list">
-          ${tips.map((tip) => `<li>${tip}</li>`).join("")}
-        </ul>
-      `;
+      renderSeason(selectedSeason);
     });
   });
+
+  renderSeason(activeSeason);
 }
 
 function createCharityCard(charity) {

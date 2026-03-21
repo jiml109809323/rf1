@@ -360,11 +360,35 @@ h1 {
 
 .recipe-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-bottom: 1.5rem;
 }
 
 .recipe-card {
-  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.25rem 1rem;
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.82);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.recipe-card:hover,
+.recipe-card:focus-visible {
+  transform: translateY(-3px);
+}
+
+.recipe-card.is-selected {
+  border: 2px solid rgba(124, 58, 237, 0.75);
+  box-shadow:
+    0 0 0 4px rgba(124, 58, 237, 0.12),
+    var(--shadow-soft);
 }
 
 .recipe-icon {
@@ -377,6 +401,70 @@ h1 {
   border-radius: 16px;
   background: rgba(124, 58, 237, 0.12);
   font-size: 1.45rem;
+}
+
+.recipe-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.recipe-detail-panel {
+  padding: 1.75rem;
+  border-radius: var(--radius-medium);
+  background: linear-gradient(180deg, rgba(219, 234, 254, 0.7), rgba(255, 255, 255, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow-soft);
+}
+
+.recipe-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.recipe-detail-header h3,
+.recipe-detail-block h4 {
+  margin-bottom: 0;
+}
+
+.recipe-detail-icon {
+  display: inline-flex;
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(20, 184, 166, 0.15);
+  font-size: 1.8rem;
+}
+
+.recipe-detail-season {
+  margin: 0 0 0.25rem;
+  color: var(--purple);
+  font-weight: 800;
+}
+
+.recipe-detail-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.recipe-detail-block {
+  padding: 1.25rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.recipe-list {
+  margin: 0.85rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.recipe-list li {
+  margin-bottom: 0.65rem;
+  line-height: 1.6;
 }
 
 .search-input {
@@ -494,7 +582,8 @@ h1 {
   .hero-section,
   .section-grid,
   .charity-grid,
-  .recipe-grid {
+  .recipe-grid,
+  .recipe-detail-columns {
     grid-template-columns: 1fr;
   }
 
