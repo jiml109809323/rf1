@@ -218,3 +218,28 @@ export async function rejectPendingItem(id) {
     await del(targets);
   }
 }
+
+export async function deleteApprovedItem(id) {
+  const [photoList, metaList] = await Promise.all([
+    listAll(IMAGE_PREFIX_APPROVED),
+    listAll(META_PREFIX_APPROVED),
+  ]);
+  const photoBlob = photoList.find((blob) =>
+    blob.pathname.startsWith(`${IMAGE_PREFIX_APPROVED}${id}__`),
+  );
+  const metaBlob = metaList.find((blob) => blob.pathname === `${META_PREFIX_APPROVED}${id}.json`);
+
+  const targets = [];
+  if (photoBlob) {
+    targets.push(photoBlob.url);
+  }
+  if (metaBlob) {
+    targets.push(metaBlob.url);
+  }
+
+  if (!targets.length) {
+    throw new Error("Approved photo not found.");
+  }
+
+  await del(targets);
+}

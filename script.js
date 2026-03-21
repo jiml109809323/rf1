@@ -522,6 +522,7 @@ function setupGalleryPreview() {
   const adminPasswordInput = document.querySelector("#admin-password");
   const loadPendingButton = document.querySelector("#load-pending-button");
   const adminStatus = document.querySelector("#admin-status");
+  const publicGallerySection = document.querySelector("#public-gallery-section");
 
   const hasPublicGallery = Boolean(fileInput && previewCard && form && status);
 
@@ -583,13 +584,25 @@ function setupGalleryPreview() {
       }
 
       if (!data.items.length) {
-        setGridPlaceholder(approvedGrid, "Approved stall photos will appear here soon");
+        if (publicGallerySection) {
+          publicGallerySection.style.display = "none";
+        } else {
+          setGridPlaceholder(approvedGrid, "Approved photos will appear here after they go live");
+        }
         return;
+      }
+
+      if (publicGallerySection) {
+        publicGallerySection.style.display = "";
       }
 
       approvedGrid.innerHTML = data.items.map((item) => galleryCardTemplate(item)).join("");
     } catch (error) {
-      setGridPlaceholder(approvedGrid, error.message);
+      if (publicGallerySection) {
+        publicGallerySection.style.display = "none";
+      } else {
+        setGridPlaceholder(approvedGrid, error.message);
+      }
     }
   }
 
@@ -687,6 +700,36 @@ function setupGalleryPreview() {
     }
   }
 
+  async function deleteApprovedItem(id) {
+    if (!adminPasswordInput || !adminStatus) {
+      return;
+    }
+
+    const password = adminPasswordInput.value.trim();
+    adminStatus.textContent = "Deleting approved photo...";
+
+    try {
+      const response = await fetch("/api/gallery-delete-approved", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-gallery-admin-password": password,
+        },
+        body: JSON.stringify({ id }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Could not delete this approved photo.");
+      }
+
+      adminStatus.textContent = "Approved photo deleted.";
+      await loadApprovedGallery();
+    } catch (error) {
+      adminStatus.textContent = error.message;
+    }
+  }
+
   if (hasPublicGallery) {
     fileInput.addEventListener("change", () => {
       const [file] = fileInput.files || [];
@@ -750,6 +793,54 @@ function setupGalleryPreview() {
 
       updatePendingItem(button.dataset.action, button.dataset.id);
     });
+  }
+
+  if (approvedGrid && adminPasswordInput && adminStatus && !publicGallerySection) {
+    async function loadApprovedForAdmin() {
+      try {
+        const response = await fetch("/api/gallery-items");
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Could not load approved photos.");
+        }
+
+        if (!data.items.length) {
+          setGridPlaceholder(
+            approvedGrid,
+            "Approved photos will appear here after they go live",
+          );
+          return;
+        }
+
+        approvedGrid.innerHTML = data.items
+          .map(
+            (item) =>
+              galleryCardTemplate(
+                item,
+                `
+                  <div class="admin-actions">
+                    <button class="button button-secondary approved-delete-action" data-id="${item.id}" type="button">Delete</button>
+                  </div>
+                `,
+              ),
+          )
+          .join("");
+      } catch (error) {
+        setGridPlaceholder(approvedGrid, error.message);
+      }
+    }
+
+    approvedGrid.addEventListener("click", (event) => {
+      const button = event.target.closest(".approved-delete-action");
+      if (!button) {
+        return;
+      }
+
+      deleteApprovedItem(button.dataset.id);
+    });
+
+    loadApprovedForAdmin();
   }
 
   if (approvedGrid) {
