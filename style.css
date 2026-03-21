@@ -183,8 +183,7 @@ h1 {
 .feature-card p,
 .panel-intro,
 .recipe-card p,
-.charity-card p,
-.charity-meta {
+.charity-card p {
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -544,12 +543,6 @@ h1 {
 
 .charity-card p {
   margin: 0;
-}
-
-.charity-meta {
-  margin: 0;
-  font-weight: 700;
-  color: var(--purple);
 }
 
 .donate-link {

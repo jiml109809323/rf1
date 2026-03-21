@@ -116,24 +116,6 @@ const seasonalRecipes = {
   ],
   autumn: [
     {
-      id: "autumn-brownies",
-      name: "Brownies",
-      icon: "🍫",
-      ingredients: [
-        "100g chocolate",
-        "100g butter",
-        "2 eggs",
-        "100g sugar",
-        "50g flour",
-      ],
-      steps: [
-        "Melt chocolate + butter",
-        "Mix in eggs + sugar",
-        "Add flour",
-        "Bake 20 mins",
-      ],
-    },
-    {
       id: "autumn-apple-slices",
       name: "Apple Slices with Toffee",
       icon: "🍎",
@@ -170,6 +152,17 @@ const seasonalRecipes = {
         "Add sugar",
         "Fill pastry",
         "Bake until golden",
+      ],
+    },
+    {
+      id: "autumn-toffee-popcorn",
+      name: "Toffee Popcorn",
+      icon: "🍯",
+      ingredients: ["Popcorn", "Toffee sauce"],
+      steps: [
+        "Make popcorn",
+        "Drizzle toffee sauce",
+        "Mix and let it cool",
       ],
     },
   ],
@@ -459,7 +452,6 @@ function createCharityCard(charity) {
         <h3>${charity.name}</h3>
       </div>
       <p>${charity.description}</p>
-      <p class="charity-meta">Category: ${titleCase(charity.category)}</p>
       <a
         class="donate-link"
         href="${charity.donateUrl}"
