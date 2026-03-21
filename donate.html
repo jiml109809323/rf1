@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stall Funds Charity | Donate</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html">Stall Funds Charity</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./stall.html">Make a Stall</a>
+          <a class="nav-link is-active" href="./donate.html">Donate</a>
+        </nav>
+      </header>
+
+      <main class="stack-layout">
+        <section class="page-header">
+          <p class="eyebrow">Support a cause you care about</p>
+          <h1 class="page-title">Donate to Charity</h1>
+          <p class="page-subtitle">
+            Search for UK charities, choose a category, and click through to
+            donate in a new tab.
+          </p>
+        </section>
+
+        <section class="content-panel">
+          <label class="sr-only" for="charity-search">Search charities</label>
+          <input
+            class="search-input"
+            id="charity-search"
+            type="search"
+            placeholder="Search charities..."
+            autocomplete="off"
+          />
+
+          <div class="filter-row" aria-label="Charity category filters">
+            <button class="filter-button is-active" data-category="all" type="button">All</button>
+            <button class="filter-button" data-category="pets" type="button">Pets</button>
+            <button class="filter-button" data-category="homeless" type="button">Homeless</button>
+            <button class="filter-button" data-category="children" type="button">Children</button>
+            <button class="filter-button" data-category="blind" type="button">Blind</button>
+          </div>
+
+          <div class="charity-grid" id="charity-grid">
+            <!-- Charity cards are added by JavaScript -->
+          </div>
+
+          <p class="empty-state" id="empty-state">
+            No charities match that search right now. Try a different word or category.
+          </p>
+        </section>
+      </main>
+
+      <footer class="site-footer">Made by Robyn and Frances ❤️</footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
