@@ -30,44 +30,66 @@
           <p class="eyebrow">Private review area</p>
           <h1 class="page-title">Admin Review</h1>
           <p class="page-subtitle">
-            Enter your admin password to review pending photos before they appear
-            in the gallery.
+            Enter your admin password to unlock your photo review tools.
           </p>
         </section>
 
         <section class="content-panel">
-          <h2>Approved Photos</h2>
-          <p class="panel-intro">
-            Delete an approved photo here if you want to remove it from the public gallery.
-          </p>
+          <div class="admin-login-card">
+            <h2>Unlock Admin Tools</h2>
+            <p class="panel-intro">
+              Use your password to load the hidden admin view. Then you can swipe
+              through approved and pending stall photos.
+            </p>
 
-          <div class="gallery-grid" id="approved-gallery-grid">
+            <div class="admin-toolbar admin-toolbar-login">
+              <input
+                class="text-input"
+                id="admin-password"
+                type="password"
+                placeholder="Admin password"
+              />
+              <button class="button button-primary" id="load-pending-button" type="button">
+                Unlock
+              </button>
+            </div>
+
+            <p class="upload-note" id="admin-status">
+              Hidden until unlocked.
+            </p>
+          </div>
+        </section>
+
+        <section class="content-panel admin-review-panel" id="admin-review-panel" hidden>
+          <div class="admin-section-header">
+            <div>
+              <p class="eyebrow">Live on the public site</p>
+              <h2>Approved</h2>
+            </div>
+            <p class="panel-intro">
+              Delete any approved photo here if you want to remove it from the public gallery.
+            </p>
+          </div>
+
+          <div class="gallery-carousel" id="approved-gallery-grid">
             <article class="gallery-item gallery-item-placeholder">
               <div class="gallery-image-placeholder">Approved photos will appear here after they go live</div>
             </article>
           </div>
-        </section>
 
-        <section class="content-panel">
-          <div class="admin-toolbar">
-            <input
-              class="text-input"
-              id="admin-password"
-              type="password"
-              placeholder="Admin password"
-            />
-            <button class="button button-secondary" id="load-pending-button" type="button">
-              Load Pending Photos
-            </button>
+          <div class="admin-section-header admin-section-header-second">
+            <div>
+              <p class="eyebrow">Waiting for review</p>
+              <h2>Pending</h2>
+            </div>
+            <p class="panel-intro">
+              Approve kind stall photos to publish them, or reject anything you do not want to show.
+            </p>
           </div>
 
-          <p class="upload-note" id="admin-status">
-            Pending photos stay hidden from the public gallery until you approve them.
-          </p>
-
-          <div class="gallery-grid" id="pending-gallery-grid">
+          <div class="gallery-carousel" id="pending-gallery-grid">
             <article class="gallery-item gallery-item-placeholder">
-              <div class="gallery-image-placeholder">Pending photos will appear here after you load them</div>
+              <div class="gallery-image-placeholder">Pending photos will appear here after you unlock the page</div>
             </article>
           </div>
         </section>

@@ -523,6 +523,8 @@ function setupGalleryPreview() {
   const loadPendingButton = document.querySelector("#load-pending-button");
   const adminStatus = document.querySelector("#admin-status");
   const publicGallerySection = document.querySelector("#public-gallery-section");
+  const adminReviewPanel = document.querySelector("#admin-review-panel");
+  const isAdminPage = Boolean(adminPasswordInput && adminStatus && !publicGallerySection);
 
   const hasPublicGallery = Boolean(fileInput && previewCard && form && status);
 
@@ -618,6 +620,9 @@ function setupGalleryPreview() {
     }
 
     adminStatus.textContent = "Loading pending photos...";
+    if (adminReviewPanel) {
+      adminReviewPanel.hidden = false;
+    }
 
     try {
       const response = await fetch("/api/gallery-items?mode=pending", {
@@ -694,7 +699,12 @@ function setupGalleryPreview() {
 
       adminStatus.textContent =
         action === "approve" ? "Photo approved." : "Photo rejected.";
-      await Promise.all([loadPendingGallery(), loadApprovedGallery()]);
+      await loadPendingGallery();
+      if (isAdminPage) {
+        document.dispatchEvent(new CustomEvent("refresh-approved-admin"));
+      } else {
+        await loadApprovedGallery();
+      }
     } catch (error) {
       adminStatus.textContent = error.message;
     }
@@ -724,7 +734,11 @@ function setupGalleryPreview() {
       }
 
       adminStatus.textContent = "Approved photo deleted.";
-      await loadApprovedGallery();
+      if (isAdminPage) {
+        document.dispatchEvent(new CustomEvent("refresh-approved-admin"));
+      } else {
+        await loadApprovedGallery();
+      }
     } catch (error) {
       adminStatus.textContent = error.message;
     }
@@ -781,7 +795,13 @@ function setupGalleryPreview() {
   }
 
   if (loadPendingButton) {
-    loadPendingButton.addEventListener("click", loadPendingGallery);
+    loadPendingButton.addEventListener("click", async () => {
+      await loadPendingGallery();
+      if (isAdminPage) {
+        const approvedRefreshEvent = new CustomEvent("refresh-approved-admin");
+        document.dispatchEvent(approvedRefreshEvent);
+      }
+    });
   }
 
   if (pendingGrid) {
@@ -794,8 +814,6 @@ function setupGalleryPreview() {
       updatePendingItem(button.dataset.action, button.dataset.id);
     });
   }
-
-  const isAdminPage = Boolean(adminPasswordInput && adminStatus && !publicGallerySection);
 
   if (isAdminPage) {
     async function loadApprovedForAdmin() {
@@ -832,6 +850,8 @@ function setupGalleryPreview() {
         setGridPlaceholder(approvedGrid, error.message);
       }
     }
+
+    document.addEventListener("refresh-approved-admin", loadApprovedForAdmin);
 
     approvedGrid.addEventListener("click", (event) => {
       const button = event.target.closest(".approved-delete-action");
