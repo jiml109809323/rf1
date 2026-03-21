@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stalls for Good | Gallery</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="Stalls for Good home">
+          <img
+            class="brand-logo"
+            src="./logo-transparent.png"
+            alt="Stalls for Good logo"
+          />
+          <span class="brand-text">Stalls for Good</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./stall.html">Make a Stall</a>
+          <a class="nav-link" href="./donate.html">Donate</a>
+          <a class="nav-link is-active" href="./gallery.html">Gallery</a>
+        </nav>
+      </header>
+
+      <main class="stack-layout">
+        <section class="page-header">
+          <p class="eyebrow">Share your kind ideas</p>
+          <h1 class="page-title">Gallery</h1>
+          <p class="page-subtitle">
+            Send in a photo of your stall. We can review each picture before it
+            appears in the public gallery.
+          </p>
+        </section>
+
+        <section class="content-panel gallery-layout">
+          <div class="gallery-form-block">
+            <h2>Submit Your Stall Photo</h2>
+            <p class="panel-intro">
+              Choose a photo, add your name, and tell us a little about your
+              stall. Your photo should be reviewed before it goes live.
+            </p>
+
+            <form class="gallery-form" id="gallery-form">
+              <label class="form-field">
+                <span>Your name</span>
+                <input
+                  class="text-input"
+                  type="text"
+                  name="submitterName"
+                  placeholder="Robyn"
+                />
+              </label>
+
+              <label class="form-field">
+                <span>Stall title</span>
+                <input
+                  class="text-input"
+                  type="text"
+                  name="stallTitle"
+                  placeholder="My cupcake stall"
+                />
+              </label>
+
+              <label class="form-field">
+                <span>Upload a photo</span>
+                <input
+                  class="text-input file-input"
+                  id="gallery-photo"
+                  type="file"
+                  name="stallPhoto"
+                  accept="image/*"
+                />
+              </label>
+
+              <label class="form-field">
+                <span>Tell us about it</span>
+                <textarea
+                  class="text-input text-area"
+                  name="stallStory"
+                  rows="4"
+                  placeholder="We made flower cupcakes for our spring stall."
+                ></textarea>
+              </label>
+
+              <button class="button button-primary" type="submit">
+                Send For Review
+              </button>
+            </form>
+
+            <p class="upload-note" id="gallery-status">
+              This form is ready for approval workflow wiring. Right now it shows
+              a preview only.
+            </p>
+          </div>
+
+          <div class="gallery-preview-block">
+            <h2>Photo Preview</h2>
+            <div class="preview-card" id="preview-card">
+              <div class="preview-placeholder">
+                Pick a photo to preview it here before sending it for review.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-panel">
+          <h2>Approved Gallery</h2>
+          <p class="panel-intro">
+            Approved stall photos can appear here once you have reviewed them.
+          </p>
+          <div class="gallery-grid">
+            <article class="gallery-item">
+              <div class="gallery-image-placeholder">Your first approved photo will appear here</div>
+            </article>
+            <article class="gallery-item">
+              <div class="gallery-image-placeholder">You can fill this with approved stall pictures later</div>
+            </article>
+            <article class="gallery-item">
+              <div class="gallery-image-placeholder">Kind ideas, bright colours, and happy stalls</div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">Made by Robyn and Frances ❤️</footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

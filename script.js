@@ -512,5 +512,41 @@ function setupCharityFilters() {
   renderCharities();
 }
 
+function setupGalleryPreview() {
+  const fileInput = document.querySelector("#gallery-photo");
+  const previewCard = document.querySelector("#preview-card");
+  const form = document.querySelector("#gallery-form");
+  const status = document.querySelector("#gallery-status");
+
+  if (!fileInput || !previewCard || !form || !status) {
+    return;
+  }
+
+  fileInput.addEventListener("change", () => {
+    const [file] = fileInput.files || [];
+
+    if (!file) {
+      previewCard.innerHTML = `
+        <div class="preview-placeholder">
+          Pick a photo to preview it here before sending it for review.
+        </div>
+      `;
+      return;
+    }
+
+    const previewUrl = URL.createObjectURL(file);
+    previewCard.innerHTML = `
+      <img class="preview-image" src="${previewUrl}" alt="Preview of uploaded stall photo" />
+    `;
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    status.textContent =
+      "The upload form is ready. To make approval work for real, we need to connect it to storage and a review step.";
+  });
+}
+
 setupSeasonButtons();
 setupCharityFilters();
+setupGalleryPreview();
