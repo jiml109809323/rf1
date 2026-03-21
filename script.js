@@ -795,7 +795,9 @@ function setupGalleryPreview() {
     });
   }
 
-  if (approvedGrid && adminPasswordInput && adminStatus && !publicGallerySection) {
+  const isAdminPage = Boolean(adminPasswordInput && adminStatus && !publicGallerySection);
+
+  if (isAdminPage) {
     async function loadApprovedForAdmin() {
       try {
         const response = await fetch("/api/gallery-items");
@@ -843,7 +845,7 @@ function setupGalleryPreview() {
     loadApprovedForAdmin();
   }
 
-  if (approvedGrid) {
+  if (approvedGrid && !isAdminPage) {
     loadApprovedGallery();
   }
 }
