@@ -1,4 +1,4 @@
-// Shared interactive behaviour for the Stall Funds Charity pages.
+// Shared interactive behaviour for the Stalls for Good pages.
 
 const seasonalTips = {
   spring: [
