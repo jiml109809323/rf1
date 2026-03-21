@@ -91,8 +91,7 @@
             </form>
 
             <p class="upload-note" id="gallery-status">
-              This form is ready for approval workflow wiring. Right now it shows
-              a preview only.
+              Approved uploads will appear in the public gallery after review.
             </p>
           </div>
 
@@ -111,15 +110,39 @@
           <p class="panel-intro">
             Approved stall photos can appear here once you have reviewed them.
           </p>
-          <div class="gallery-grid">
-            <article class="gallery-item">
-              <div class="gallery-image-placeholder">Your first approved photo will appear here</div>
+          <div class="gallery-grid" id="approved-gallery-grid">
+            <article class="gallery-item gallery-item-placeholder">
+              <div class="gallery-image-placeholder">Approved stall photos will appear here soon</div>
             </article>
-            <article class="gallery-item">
-              <div class="gallery-image-placeholder">You can fill this with approved stall pictures later</div>
-            </article>
-            <article class="gallery-item">
-              <div class="gallery-image-placeholder">Kind ideas, bright colours, and happy stalls</div>
+          </div>
+        </section>
+
+        <section class="content-panel">
+          <h2>Admin Review</h2>
+          <p class="panel-intro">
+            Enter your admin password to review pending photos before they appear
+            in the gallery.
+          </p>
+
+          <div class="admin-toolbar">
+            <input
+              class="text-input"
+              id="admin-password"
+              type="password"
+              placeholder="Admin password"
+            />
+            <button class="button button-secondary" id="load-pending-button" type="button">
+              Load Pending Photos
+            </button>
+          </div>
+
+          <p class="upload-note" id="admin-status">
+            Pending photos stay hidden from the public gallery until you approve them.
+          </p>
+
+          <div class="gallery-grid" id="pending-gallery-grid">
+            <article class="gallery-item gallery-item-placeholder">
+              <div class="gallery-image-placeholder">Pending photos will appear here after you load them</div>
             </article>
           </div>
         </section>

@@ -517,9 +517,172 @@ function setupGalleryPreview() {
   const previewCard = document.querySelector("#preview-card");
   const form = document.querySelector("#gallery-form");
   const status = document.querySelector("#gallery-status");
+  const approvedGrid = document.querySelector("#approved-gallery-grid");
+  const pendingGrid = document.querySelector("#pending-gallery-grid");
+  const adminPasswordInput = document.querySelector("#admin-password");
+  const loadPendingButton = document.querySelector("#load-pending-button");
+  const adminStatus = document.querySelector("#admin-status");
 
   if (!fileInput || !previewCard || !form || !status) {
     return;
+  }
+
+  function escapeHtml(value) {
+    return String(value || "").replace(/[&<>"']/g, (character) => {
+      const map = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      };
+
+      return map[character];
+    });
+  }
+
+  function galleryCardTemplate(item, actions = "") {
+    return `
+      <article class="gallery-item">
+        <img class="gallery-image" src="${item.imageUrl}" alt="${escapeHtml(item.stallTitle)}" />
+        <div class="gallery-item-copy">
+          <h3>${escapeHtml(item.stallTitle)}</h3>
+          <p class="gallery-byline">By ${escapeHtml(item.submitterName)}</p>
+          <p>${escapeHtml(item.stallStory || "")}</p>
+          ${actions}
+        </div>
+      </article>
+    `;
+  }
+
+  function setGridPlaceholder(grid, message) {
+    if (!grid) {
+      return;
+    }
+
+    grid.innerHTML = `
+      <article class="gallery-item gallery-item-placeholder">
+        <div class="gallery-image-placeholder">${message}</div>
+      </article>
+    `;
+  }
+
+  async function loadApprovedGallery() {
+    if (!approvedGrid) {
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/gallery-items");
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Could not load approved photos.");
+      }
+
+      if (!data.items.length) {
+        setGridPlaceholder(approvedGrid, "Approved stall photos will appear here soon");
+        return;
+      }
+
+      approvedGrid.innerHTML = data.items.map((item) => galleryCardTemplate(item)).join("");
+    } catch (error) {
+      setGridPlaceholder(approvedGrid, error.message);
+    }
+  }
+
+  async function loadPendingGallery() {
+    if (!pendingGrid || !adminPasswordInput || !adminStatus) {
+      return;
+    }
+
+    const password = adminPasswordInput.value.trim();
+    if (!password) {
+      adminStatus.textContent = "Enter the admin password first.";
+      return;
+    }
+
+    adminStatus.textContent = "Loading pending photos...";
+
+    try {
+      const response = await fetch("/api/gallery-items?mode=pending", {
+        headers: {
+          "x-gallery-admin-password": password,
+        },
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Could not load pending photos.");
+      }
+
+      if (!data.items.length) {
+        setGridPlaceholder(
+          pendingGrid,
+          "There are no pending photos waiting for review right now.",
+        );
+        adminStatus.textContent = "No pending photos right now.";
+        return;
+      }
+
+      pendingGrid.innerHTML = data.items
+        .map(
+          (item) =>
+            galleryCardTemplate(
+              item,
+              `
+                <div class="admin-actions">
+                  <button class="button button-primary admin-action" data-action="approve" data-id="${item.id}" type="button">Approve</button>
+                  <button class="button button-secondary admin-action" data-action="reject" data-id="${item.id}" type="button">Reject</button>
+                </div>
+              `,
+            ),
+        )
+        .join("");
+
+      adminStatus.textContent = "Pending photos loaded.";
+    } catch (error) {
+      adminStatus.textContent = error.message;
+      setGridPlaceholder(
+        pendingGrid,
+        "Pending photos will appear here after you load them",
+      );
+    }
+  }
+
+  async function updatePendingItem(action, id) {
+    if (!adminPasswordInput || !adminStatus) {
+      return;
+    }
+
+    const password = adminPasswordInput.value.trim();
+    const endpoint =
+      action === "approve" ? "/api/gallery-approve" : "/api/gallery-reject";
+
+    adminStatus.textContent =
+      action === "approve" ? "Approving photo..." : "Rejecting photo...";
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-gallery-admin-password": password,
+        },
+        body: JSON.stringify({ id }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Could not update this photo.");
+      }
+
+      adminStatus.textContent =
+        action === "approve" ? "Photo approved." : "Photo rejected.";
+      await Promise.all([loadPendingGallery(), loadApprovedGallery()]);
+    } catch (error) {
+      adminStatus.textContent = error.message;
+    }
   }
 
   fileInput.addEventListener("change", () => {
@@ -542,9 +705,50 @@ function setupGalleryPreview() {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    status.textContent =
-      "The upload form is ready. To make approval work for real, we need to connect it to storage and a review step.";
+
+    const formData = new FormData(form);
+    status.textContent = "Sending your photo for review...";
+
+    fetch("/api/gallery-upload", {
+      method: "PUT",
+      body: formData,
+    })
+      .then(async (response) => {
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Could not upload your photo.");
+        }
+
+        form.reset();
+        previewCard.innerHTML = `
+          <div class="preview-placeholder">
+            Your photo was sent for review. It will appear in the gallery once approved.
+          </div>
+        `;
+        status.textContent = data.message;
+      })
+      .catch((error) => {
+        status.textContent = error.message;
+      });
   });
+
+  if (loadPendingButton) {
+    loadPendingButton.addEventListener("click", loadPendingGallery);
+  }
+
+  if (pendingGrid) {
+    pendingGrid.addEventListener("click", (event) => {
+      const button = event.target.closest(".admin-action");
+      if (!button) {
+        return;
+      }
+
+      updatePendingItem(button.dataset.action, button.dataset.id);
+    });
+  }
+
+  loadApprovedGallery();
 }
 
 setupSeasonButtons();
