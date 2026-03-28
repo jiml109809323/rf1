@@ -267,6 +267,13 @@ const charities = [
     logoUrl: "https://www.google.com/s2/favicons?sz=128&domain_url=centrepoint.org.uk",
   },
   {
+    name: "Shelter",
+    category: "homeless",
+    description: "Supports people facing bad housing and homelessness",
+    donateUrl: "https://england.shelter.org.uk/donate/shelter_and_nationwide",
+    logoUrl: "https://www.google.com/s2/favicons?sz=128&domain_url=england.shelter.org.uk",
+  },
+  {
     name: "Barnardo’s",
     category: "children",
     description: "Supports vulnerable children",
@@ -322,6 +329,13 @@ const charities = [
     donateUrl: "https://www.blindveterans.org.uk/support-us/donate",
     logoUrl:
       "https://app-bvuk-web-umbraco-prod-uks.azurewebsites.net/media/31likd2e/bvuk-logo-strapline-colour-rgb-light-bkgrnd.jpg?&quality=90&width=1200&height=630&ranchor=center&rmode=crop",
+  },
+  {
+    name: "Cancer Research UK",
+    category: "health",
+    description: "Funds research to help beat cancer",
+    donateUrl: "https://www.cancerresearchuk.org/get-involved/donate/choose-how-you-support",
+    logoUrl: "https://www.google.com/s2/favicons?sz=128&domain_url=cancerresearchuk.org",
   },
 ];
 

@@ -498,6 +498,14 @@ h1 {
   border-color: rgba(20, 184, 166, 0.4);
 }
 
+.support-note {
+  margin: 0 0 1.1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(249, 168, 212, 0.12), rgba(219, 234, 254, 0.38));
+  line-height: 1.7;
+}
+
 .search-input:focus {
   outline: 3px solid rgba(20, 184, 166, 0.22);
   border-color: rgba(20, 184, 166, 0.4);
