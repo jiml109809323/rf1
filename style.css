@@ -141,19 +141,6 @@ img {
   min-width: 170px;
 }
 
-.menu-button {
-  display: inline-grid;
-  width: 52px;
-  height: 52px;
-  place-items: center;
-  border: 2px solid #dfd7ee;
-  border-radius: 50%;
-  color: var(--navy);
-  font-size: 1.8rem;
-  font-weight: 900;
-  background: var(--white);
-}
-
 .site-shell {
   width: min(1320px, calc(100% - 3rem));
   margin: 0 auto;
@@ -925,10 +912,6 @@ h3 {
 
   .header-action {
     justify-self: end;
-  }
-
-  .menu-button {
-    display: none;
   }
 
   .hero-section,
