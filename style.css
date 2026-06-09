@@ -326,7 +326,7 @@ h3 {
   max-width: 250px;
   padding: 0.9rem 1.1rem;
   border-radius: 18px;
-  background: linear-gradient(180deg, #fff2c4, #ffe38c);
+  background: linear-gradient(180deg, #ffd166, #f4b942);
   box-shadow: var(--shadow-soft);
 }
 
@@ -469,6 +469,26 @@ h3 {
 .idea-card {
   overflow: hidden;
   padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.idea-card:hover,
+.idea-card:focus-visible {
+  transform: translateY(-3px);
+}
+
+.idea-card:focus-visible {
+  outline: 3px solid rgba(22, 184, 173, 0.35);
+  outline-offset: 3px;
+}
+
+.idea-card.is-selected {
+  border-color: rgba(124, 77, 255, 0.8);
+  box-shadow: 0 0 0 4px rgba(124, 77, 255, 0.12), var(--shadow-soft);
 }
 
 .idea-image {
@@ -493,6 +513,29 @@ h3 {
 
 .idea-copy {
   padding: 1rem 1.1rem 1.25rem;
+}
+
+.idea-detail-panel {
+  margin-top: 1.5rem;
+  padding: 1.6rem;
+  border-radius: var(--radius-medium);
+  background: linear-gradient(135deg, #f7f2ff, #ffffff);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+.idea-detail-intro {
+  margin: 0.35rem 0 0;
+  line-height: 1.6;
+}
+
+.idea-detail-tip {
+  margin: 1.25rem 0 0;
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+  color: var(--navy);
+  background: linear-gradient(135deg, rgba(255, 209, 102, 0.34), rgba(126, 231, 216, 0.18));
+  line-height: 1.6;
 }
 
 .idea-tag {

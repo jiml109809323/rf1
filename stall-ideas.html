@@ -35,39 +35,67 @@
         </section>
 
         <section class="content-panel">
-          <div class="idea-grid">
-            <article class="idea-card">
+          <div class="idea-grid" id="idea-grid">
+            <button
+              class="idea-card"
+              data-idea-id="bake-sale"
+              aria-pressed="true"
+              type="button"
+            >
               <div class="idea-image" aria-hidden="true">🧁</div>
               <div class="idea-copy">
                 <span class="idea-tag">Bake Sale</span>
                 <h3>Bake delicious treats</h3>
                 <p>Decorated cupcakes, brownies, fruit skewers, and lemonade are easy favourites.</p>
               </div>
-            </article>
-            <article class="idea-card">
+            </button>
+            <button
+              class="idea-card"
+              data-idea-id="craft-stall"
+              aria-pressed="false"
+              type="button"
+            >
               <div class="idea-image" aria-hidden="true">🎨</div>
               <div class="idea-copy">
                 <span class="idea-tag">Craft Stall</span>
                 <h3>Make little treasures</h3>
                 <p>Try friendship bracelets, bookmarks, badges, painted stones, or handmade cards.</p>
               </div>
-            </article>
-            <article class="idea-card">
+            </button>
+            <button
+              class="idea-card"
+              data-idea-id="toy-sale"
+              aria-pressed="false"
+              type="button"
+            >
               <div class="idea-image" aria-hidden="true">🧸</div>
               <div class="idea-copy">
                 <span class="idea-tag">Toy Sale</span>
                 <h3>Find toys new homes</h3>
                 <p>Sort clean toys, books, puzzles, or games and add simple price labels.</p>
               </div>
-            </article>
-            <article class="idea-card">
+            </button>
+            <button
+              class="idea-card"
+              data-idea-id="games-stall"
+              aria-pressed="false"
+              type="button"
+            >
               <div class="idea-image" aria-hidden="true">🎮</div>
               <div class="idea-copy">
                 <span class="idea-tag">Games Stall</span>
                 <h3>Run a mini challenge</h3>
                 <p>Lucky dip, hoop toss, tin-can alley, and hook-a-duck are fun for everyone.</p>
               </div>
-            </article>
+            </button>
+          </div>
+
+          <div
+            class="idea-detail-panel"
+            id="idea-detail-panel"
+            aria-live="polite"
+          >
+            <!-- Stall idea details are added by JavaScript -->
           </div>
         </section>
 
@@ -114,6 +142,6 @@
       <footer class="site-footer">Made by Robyn and Frances ❤️</footer>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="./script.js?v=4"></script>
   </body>
 </html>

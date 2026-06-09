@@ -216,6 +216,93 @@ const seasonalRecipes = {
   ],
 };
 
+const stallIdeaGuides = {
+  "bake-sale": {
+    label: "Bake Sale",
+    title: "How to make a bake sale",
+    icon: "🧁",
+    intro:
+      "Bake sales are brilliant because people can see the treats straight away and choose what they like.",
+    supplies: [
+      "A table and bright tablecloth",
+      "Cakes, biscuits, fruit cups, or lemonade",
+      "Cake cases, napkins, and tongs",
+      "Price labels and a donation jar",
+    ],
+    steps: [
+      "Choose 2 or 3 simple recipes and bake with a grown-up.",
+      "Write labels for the treats, including any common allergens.",
+      "Arrange everything in rows so it looks colourful and easy to choose from.",
+      "Put your charity sign and donation jar where people can see them.",
+      "Smile, say thank you, and count the donations with a grown-up afterwards.",
+    ],
+    tip: "Mini cupcakes and cookies are easy to price because each person can buy one or two.",
+  },
+  "craft-stall": {
+    label: "Craft Stall",
+    title: "How to make a craft stall",
+    icon: "🎨",
+    intro:
+      "Craft stalls are great when you want to make things in advance and sell small handmade treasures.",
+    supplies: [
+      "Friendship bracelets, bookmarks, badges, cards, or painted stones",
+      "Small baskets, trays, or boxes for display",
+      "Card for price labels",
+      "Pens, stickers, ribbon, and a donation jar",
+    ],
+    steps: [
+      "Pick 1 or 2 crafts that are quick, neat, and fun to repeat.",
+      "Make a small collection before the stall day so the table looks full.",
+      "Group similar colours or designs together in trays or little piles.",
+      "Add simple prices, such as 50p, £1, or pay-what-you-can.",
+      "Offer to write names on cards or bookmarks if a grown-up says it is okay.",
+    ],
+    tip: "A tiny 'custom orders' sign can be fun if you have time to make bracelets or cards while people wait.",
+  },
+  "toy-sale": {
+    label: "Toy Sale",
+    title: "How to make a toy sale",
+    icon: "🧸",
+    intro:
+      "Toy sales help toys, books, and puzzles find new homes while raising money for a good cause.",
+    supplies: [
+      "Clean toys, books, puzzles, or games you are ready to pass on",
+      "Boxes or blankets for sorting",
+      "Sticky labels or tags",
+      "A charity sign and donation jar",
+    ],
+    steps: [
+      "Ask a grown-up before choosing which toys can be sold.",
+      "Check everything is clean, safe, and has all the important pieces.",
+      "Sort items into groups like books, cuddly toys, puzzles, and games.",
+      "Put easy prices on labels, or make a 'choose a donation' box.",
+      "At the end, tidy unsold items into a box to keep, donate, or try another day.",
+    ],
+    tip: "Bundle small toys together in little sets so they feel extra special.",
+  },
+  "games-stall": {
+    label: "Games Stall",
+    title: "How to make a games stall",
+    icon: "🎮",
+    intro:
+      "Games stalls are perfect for fairs and garden events because people can pay a small donation to have a go.",
+    supplies: [
+      "A simple game like lucky dip, hoop toss, tin-can alley, or hook-a-duck",
+      "Small prizes or stickers",
+      "A clear rules sign",
+      "A donation jar or box",
+    ],
+    steps: [
+      "Choose one game that is easy to explain in one sentence.",
+      "Test it a few times so it feels fair and not too hard.",
+      "Write the rules and suggested donation on a bright sign.",
+      "Set up a safe playing space with enough room for people to stand back.",
+      "Give everyone a cheer, whether they win a prize or just have fun.",
+    ],
+    tip: "Use three tries per turn. It keeps the queue moving and makes the game feel fair.",
+  },
+};
+
 const charities = [
   {
     name: "RSPCA",
@@ -341,6 +428,71 @@ const charities = [
 
 function titleCase(value) {
   return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+function setupStallIdeaGuides() {
+  const ideaGrid = document.querySelector("#idea-grid");
+  const ideaCards = document.querySelectorAll(".idea-card[data-idea-id]");
+  const ideaDetailPanel = document.querySelector("#idea-detail-panel");
+
+  if (!ideaGrid || !ideaCards.length || !ideaDetailPanel) {
+    return;
+  }
+
+  function renderIdeaGuide(ideaId) {
+    const guide = stallIdeaGuides[ideaId];
+
+    if (!guide) {
+      return;
+    }
+
+    ideaCards.forEach((card) => {
+      const isSelected = card.dataset.ideaId === ideaId;
+      card.classList.toggle("is-selected", isSelected);
+      card.setAttribute("aria-pressed", String(isSelected));
+    });
+
+    ideaDetailPanel.innerHTML = `
+      <div class="recipe-detail-header">
+        <span class="recipe-detail-icon">${guide.icon}</span>
+        <div>
+          <p class="recipe-detail-season">${guide.label}</p>
+          <h3>${guide.title}</h3>
+          <p class="idea-detail-intro">${guide.intro}</p>
+        </div>
+      </div>
+
+      <div class="recipe-detail-columns">
+        <section class="recipe-detail-block">
+          <h4>What you need</h4>
+          <ul class="recipe-list">
+            ${guide.supplies.map((item) => `<li>${item}</li>`).join("")}
+          </ul>
+        </section>
+
+        <section class="recipe-detail-block">
+          <h4>How to make it</h4>
+          <ol class="recipe-list recipe-steps">
+            ${guide.steps.map((step) => `<li>${step}</li>`).join("")}
+          </ol>
+        </section>
+      </div>
+
+      <p class="idea-detail-tip"><strong>Helpful tip:</strong> ${guide.tip}</p>
+    `;
+  }
+
+  ideaGrid.addEventListener("click", (event) => {
+    const card = event.target.closest(".idea-card[data-idea-id]");
+
+    if (!card) {
+      return;
+    }
+
+    renderIdeaGuide(card.dataset.ideaId);
+  });
+
+  renderIdeaGuide(ideaCards[0].dataset.ideaId);
 }
 
 function setupSeasonButtons() {
@@ -884,6 +1036,7 @@ function setupGalleryPreview() {
   }
 }
 
+setupStallIdeaGuides();
 setupSeasonButtons();
 setupCharityFilters();
 setupGalleryPreview();
