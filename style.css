@@ -538,6 +538,28 @@ h3 {
   line-height: 1.6;
 }
 
+.workshop-block-spaced {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.workshop-card .idea-tag {
+  align-self: center;
+  margin-bottom: 0;
+}
+
+.activity-detail-panel {
+  margin-top: 0;
+}
+
 .idea-tag {
   margin-bottom: 0.7rem;
   color: var(--purple-dark);
@@ -961,6 +983,7 @@ h3 {
   .section-grid,
   .charity-grid,
   .recipe-grid,
+  .activity-grid,
   .recipe-detail-columns,
   .gallery-layout,
   .gallery-grid,

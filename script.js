@@ -303,6 +303,291 @@ const stallIdeaGuides = {
   },
 };
 
+const stallTypeWorkshops = {
+  "bake-sale": {
+    mode: "seasonal",
+    heading: "Bake Sale Recipe Ideas",
+    intro:
+      "Choose a season, then click a recipe icon to load the full recipe below.",
+  },
+  "craft-stall": {
+    mode: "projects",
+    heading: "Craft Things You Can Build",
+    intro:
+      "Pick a craft project to see what you need and how to make it for your stall.",
+    items: [
+      {
+        id: "friendship-bracelets",
+        name: "Friendship Bracelets",
+        icon: "🧵",
+        label: "Popular craft",
+        intro: "Colourful bracelets are small, fun to make, and easy to display in bundles.",
+        supplies: [
+          "Embroidery thread or elastic cord",
+          "Letter beads or colourful beads",
+          "Scissors",
+          "Small bags or card tags",
+        ],
+        steps: [
+          "Choose 3 or 4 thread colours that look cheerful together.",
+          "Cut the thread to a bracelet length with extra room for tying.",
+          "Plait, knot, or bead the bracelet pattern.",
+          "Tie the ends securely and trim any loose thread.",
+          "Display bracelets by colour or size with a simple price label.",
+        ],
+        tip: "Make a few matching best-friend pairs so people can buy two together.",
+      },
+      {
+        id: "bookmarks",
+        name: "Kindness Bookmarks",
+        icon: "🔖",
+        label: "Paper craft",
+        intro: "Bookmarks are quick to make and work well for book lovers, teachers, and family.",
+        supplies: [
+          "Coloured card",
+          "Pens, stickers, or stamps",
+          "Ribbon or wool",
+          "Hole punch",
+        ],
+        steps: [
+          "Cut card into bookmark strips.",
+          "Write a cheerful message or draw a tiny picture.",
+          "Decorate with stickers, stamps, or patterned edges.",
+          "Punch a hole at the top and tie on ribbon.",
+          "Bundle them in sets or sell them one at a time.",
+        ],
+        tip: "Messages like 'You are kind' or 'Keep going' make them feel special.",
+      },
+      {
+        id: "painted-stones",
+        name: "Painted Stones",
+        icon: "🎨",
+        label: "Decor craft",
+        intro: "Painted stones can become tiny animals, hearts, flowers, or lucky charms.",
+        supplies: [
+          "Smooth clean stones",
+          "Acrylic paint or paint pens",
+          "Newspaper for the table",
+          "Optional clear sealant with grown-up help",
+        ],
+        steps: [
+          "Wash and dry the stones first.",
+          "Paint a base colour and let it dry.",
+          "Add faces, flowers, hearts, patterns, or names.",
+          "Let every stone dry completely.",
+          "Place them in a tray with a sign like 'Pick a lucky stone'.",
+        ],
+        tip: "Tiny faces and hearts are usually the quickest designs to repeat.",
+      },
+      {
+        id: "greeting-cards",
+        name: "Handmade Cards",
+        icon: "💌",
+        label: "Gift craft",
+        intro: "Cards are lovely because people can buy them for birthdays, thank-yous, or just because.",
+        supplies: [
+          "Blank cards or folded card",
+          "Scrap paper, stickers, or washi tape",
+          "Glue stick",
+          "Pens",
+        ],
+        steps: [
+          "Fold card neatly or use blank card bases.",
+          "Create simple designs like balloons, flowers, stars, or hearts.",
+          "Add a short message on the front.",
+          "Leave the inside blank so the buyer can write their own note.",
+          "Group cards by theme with a clear price.",
+        ],
+        tip: "Make a few 'thank you' cards because they fit the charity theme beautifully.",
+      },
+    ],
+  },
+  "toy-sale": {
+    mode: "projects",
+    heading: "Toy Sale Setups",
+    intro:
+      "Choose a toy-sale setup to see how to sort, label, and display things clearly.",
+    items: [
+      {
+        id: "book-box",
+        name: "Book Box",
+        icon: "📚",
+        label: "Easy setup",
+        intro: "A book box is a simple way to sell picture books, chapter books, and comics.",
+        supplies: [
+          "A sturdy box or crate",
+          "Clean books",
+          "Card for category labels",
+          "A simple price sign",
+        ],
+        steps: [
+          "Check books are clean and have no missing pages.",
+          "Sort them into picture books, chapter books, and comics.",
+          "Stand a few favourites upright at the front.",
+          "Add labels so people can browse quickly.",
+          "Offer a small bundle price for two or three books.",
+        ],
+        tip: "Put the most colourful covers facing forward to catch people's eye.",
+      },
+      {
+        id: "teddy-adoption",
+        name: "Teddy Adoption",
+        icon: "🧸",
+        label: "Cute idea",
+        intro: "A teddy adoption table gives soft toys a fun story and a new home.",
+        supplies: [
+          "Clean soft toys",
+          "Name tags",
+          "A basket or blanket",
+          "Optional adoption certificates",
+        ],
+        steps: [
+          "Choose clean soft toys in good condition.",
+          "Give each toy a name tag.",
+          "Place them sitting up on a blanket or in a basket.",
+          "Write a sign saying 'Adopt a teddy for charity'.",
+          "Offer a certificate or tiny card with each adopted teddy.",
+        ],
+        tip: "Naming the teddies makes people smile and helps them choose.",
+      },
+      {
+        id: "puzzle-table",
+        name: "Puzzle & Game Table",
+        icon: "🧩",
+        label: "Family table",
+        intro: "Puzzles and games need a little checking, but they can be great stall items.",
+        supplies: [
+          "Puzzles, board games, or card games",
+          "Sticky notes",
+          "Rubber bands or bags for loose pieces",
+          "A display table",
+        ],
+        steps: [
+          "Check important pieces are included before the stall.",
+          "Tape or bag loose pieces so nothing falls out.",
+          "Add a note if something is nearly complete but missing a piece.",
+          "Group games by age or type.",
+          "Put the clearest boxes at the front of the table.",
+        ],
+        tip: "Honest labels help people trust the stall.",
+      },
+      {
+        id: "pocket-money-basket",
+        name: "Pocket Money Basket",
+        icon: "🧺",
+        label: "Quick buys",
+        intro: "A pocket money basket is perfect for tiny toys, figures, cars, and little surprises.",
+        supplies: [
+          "Small toys",
+          "A basket or shallow box",
+          "A price sign",
+          "Small paper bags",
+        ],
+        steps: [
+          "Choose small toys that are clean and safe.",
+          "Put similar toys into little groups.",
+          "Use one simple price for the whole basket.",
+          "Keep the basket near the front so children can browse.",
+          "Offer a paper bag when someone chooses more than one item.",
+        ],
+        tip: "One clear price is easier than lots of tiny labels.",
+      },
+    ],
+  },
+  "games-stall": {
+    mode: "projects",
+    heading: "Games You Can Run",
+    intro:
+      "Pick a game to see the setup, rules, and tips for keeping it fun and fair.",
+    items: [
+      {
+        id: "lucky-dip",
+        name: "Lucky Dip",
+        icon: "🎁",
+        label: "Easy game",
+        intro: "Lucky dip is quick to set up and exciting because every turn is a surprise.",
+        supplies: [
+          "A box, basket, or bucket",
+          "Tissue paper or shredded paper",
+          "Small wrapped prizes",
+          "A rules and donation sign",
+        ],
+        steps: [
+          "Wrap small prizes or place them in paper bags.",
+          "Fill a box with tissue paper so prizes are hidden.",
+          "Write a sign with the donation amount per turn.",
+          "Let each person pick one prize without looking.",
+          "Refill the box as prizes run low.",
+        ],
+        tip: "Have a few extra tiny prizes ready so the game does not run out too quickly.",
+      },
+      {
+        id: "tin-can-alley",
+        name: "Tin Can Alley",
+        icon: "🥫",
+        label: "Challenge game",
+        intro: "Tin-can alley is brilliant for a stall because it is visual and noisy in a fun way.",
+        supplies: [
+          "Clean empty cans or plastic cups",
+          "A soft ball or beanbag",
+          "A table or low box",
+          "A safe throwing line",
+        ],
+        steps: [
+          "Stack cans or cups in a pyramid.",
+          "Mark a throwing line with tape or chalk.",
+          "Give each player three throws.",
+          "Reset the cans after each turn.",
+          "Award a sticker or small prize for knocking down enough cans.",
+        ],
+        tip: "Use a soft ball and keep the throwing space clear.",
+      },
+      {
+        id: "hoop-toss",
+        name: "Hoop Toss",
+        icon: "⭕",
+        label: "Outdoor game",
+        intro: "Hoop toss works well outside and can be made easier or harder by moving the line.",
+        supplies: [
+          "Hoops or rope rings",
+          "Bottles, cones, or pegs",
+          "A marker for the throw line",
+          "A score sign",
+        ],
+        steps: [
+          "Set bottles or cones in a row.",
+          "Mark where players should stand.",
+          "Give each player three hoops.",
+          "Count how many hoops land over a target.",
+          "Move the line closer for younger players if needed.",
+        ],
+        tip: "Different coloured targets can be worth different points.",
+      },
+      {
+        id: "guess-the-jar",
+        name: "Guess the Jar",
+        icon: "🫙",
+        label: "Quiet game",
+        intro: "Guess the jar is great when you want a simple game that can run all day.",
+        supplies: [
+          "A clear jar",
+          "Sweets, buttons, beads, or counters",
+          "Guess slips and pencils",
+          "A box for entries",
+        ],
+        steps: [
+          "Fill the jar and secretly count the items with a grown-up.",
+          "Put the jar where people can see it but not open it.",
+          "Ask people to write their name and guess on a slip.",
+          "Collect guesses through the day.",
+          "At the end, announce the closest guess and give a small prize.",
+        ],
+        tip: "Use wrapped sweets if the prize will be eaten later.",
+      },
+    ],
+  },
+};
+
 const charities = [
   {
     name: "RSPCA",
@@ -434,9 +719,255 @@ function setupStallIdeaGuides() {
   const ideaGrid = document.querySelector("#idea-grid");
   const ideaCards = document.querySelectorAll(".idea-card[data-idea-id]");
   const ideaDetailPanel = document.querySelector("#idea-detail-panel");
+  const workshopPanel = document.querySelector("#idea-workshop-section");
 
-  if (!ideaGrid || !ideaCards.length || !ideaDetailPanel) {
+  if (!ideaGrid || !ideaCards.length || !ideaDetailPanel || !workshopPanel) {
     return;
+  }
+
+  function renderList(items) {
+    return items.map((item) => `<li>${item}</li>`).join("");
+  }
+
+  function renderProjectDetail(item) {
+    const detailPanel = workshopPanel.querySelector("#workshop-detail-panel");
+
+    if (!detailPanel) {
+      return;
+    }
+
+    workshopPanel.querySelectorAll(".workshop-card").forEach((card) => {
+      const isSelected = card.dataset.workshopItemId === item.id;
+      card.classList.toggle("is-selected", isSelected);
+      card.setAttribute("aria-pressed", String(isSelected));
+    });
+
+    detailPanel.innerHTML = `
+      <div class="recipe-detail-header">
+        <span class="recipe-detail-icon">${item.icon}</span>
+        <div>
+          <p class="recipe-detail-season">${item.label}</p>
+          <h3>${item.name}</h3>
+          <p class="idea-detail-intro">${item.intro}</p>
+        </div>
+      </div>
+
+      <div class="recipe-detail-columns">
+        <section class="recipe-detail-block">
+          <h4>What you need</h4>
+          <ul class="recipe-list">
+            ${renderList(item.supplies)}
+          </ul>
+        </section>
+
+        <section class="recipe-detail-block">
+          <h4>How to make it</h4>
+          <ol class="recipe-list recipe-steps">
+            ${renderList(item.steps)}
+          </ol>
+        </section>
+      </div>
+
+      <p class="idea-detail-tip"><strong>Helpful tip:</strong> ${item.tip}</p>
+    `;
+  }
+
+  function renderProjectWorkshop(workshop) {
+    workshopPanel.innerHTML = `
+      <h2>${workshop.heading}</h2>
+      <p class="panel-intro">${workshop.intro}</p>
+
+      <div class="activity-grid" id="workshop-grid">
+        ${workshop.items
+          .map(
+            (item, index) => `
+              <button
+                class="recipe-card workshop-card ${index === 0 ? "is-selected" : ""}"
+                type="button"
+                data-workshop-item-id="${item.id}"
+                aria-pressed="${index === 0 ? "true" : "false"}"
+              >
+                <div class="recipe-icon">${item.icon}</div>
+                <span class="idea-tag">${item.label}</span>
+                <h3>${item.name}</h3>
+              </button>
+            `,
+          )
+          .join("")}
+      </div>
+
+      <div class="recipe-detail-panel activity-detail-panel" id="workshop-detail-panel">
+        <!-- Selected workshop details are added by JavaScript -->
+      </div>
+    `;
+
+    const workshopGrid = workshopPanel.querySelector("#workshop-grid");
+
+    workshopGrid.addEventListener("click", (event) => {
+      const button = event.target.closest(".workshop-card[data-workshop-item-id]");
+
+      if (!button) {
+        return;
+      }
+
+      const selectedItem = workshop.items.find(
+        (item) => item.id === button.dataset.workshopItemId,
+      );
+
+      if (selectedItem) {
+        renderProjectDetail(selectedItem);
+      }
+    });
+
+    renderProjectDetail(workshop.items[0]);
+  }
+
+  function renderBakeRecipeDetail(seasonKey, recipeId) {
+    const recipeDetailPanel = workshopPanel.querySelector("#recipe-detail-panel");
+
+    if (!recipeDetailPanel) {
+      return;
+    }
+
+    const selectedRecipe = seasonalRecipes[seasonKey].find(
+      (recipe) => recipe.id === recipeId,
+    );
+
+    recipeDetailPanel.innerHTML = `
+      <div class="recipe-detail-header">
+        <span class="recipe-detail-icon">${selectedRecipe.icon}</span>
+        <div>
+          <p class="recipe-detail-season">${titleCase(seasonKey)} recipe</p>
+          <h3>${selectedRecipe.name}</h3>
+        </div>
+      </div>
+
+      <div class="recipe-detail-columns">
+        <section class="recipe-detail-block">
+          <h4>Ingredients</h4>
+          <ul class="recipe-list">
+            ${renderList(selectedRecipe.ingredients)}
+          </ul>
+        </section>
+
+        <section class="recipe-detail-block">
+          <h4>Steps</h4>
+          <ol class="recipe-list recipe-steps">
+            ${renderList(selectedRecipe.steps)}
+          </ol>
+        </section>
+      </div>
+    `;
+  }
+
+  function renderBakeWorkshop(workshop) {
+    let activeSeason = "spring";
+    let activeRecipeId = seasonalRecipes.spring[0].id;
+
+    function renderSeason(seasonKey) {
+      const recipeGrid = workshopPanel.querySelector("#recipe-grid");
+      const tips = seasonalTips[seasonKey];
+      activeSeason = seasonKey;
+      activeRecipeId = seasonalRecipes[seasonKey][0].id;
+
+      workshopPanel.querySelectorAll(".season-button").forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.season === seasonKey);
+      });
+
+      workshopPanel.querySelector("#season-tip-panel").innerHTML = `
+        <h3 class="tips-title">${titleCase(seasonKey)} Bake Sale Ideas</h3>
+        <ul class="tips-list">
+          ${renderList(tips)}
+        </ul>
+      `;
+
+      recipeGrid.innerHTML = seasonalRecipes[seasonKey]
+        .map(
+          (recipe) => `
+            <button
+              class="recipe-card ${recipe.id === activeRecipeId ? "is-selected" : ""}"
+              type="button"
+              data-recipe-id="${recipe.id}"
+            >
+              <div class="recipe-icon">${recipe.icon}</div>
+              <h3>${recipe.name}</h3>
+            </button>
+          `,
+        )
+        .join("");
+
+      renderBakeRecipeDetail(activeSeason, activeRecipeId);
+    }
+
+    workshopPanel.innerHTML = `
+      <section class="workshop-block">
+        <h2>When will your bake sale be?</h2>
+        <p class="panel-intro">
+          Click a season to discover decorating ideas, food ideas, and fun ways
+          to make your bake sale shine.
+        </p>
+
+        <div class="season-buttons" aria-label="Bake sale season selector">
+          <button class="season-button is-active" data-season="spring" type="button">Spring</button>
+          <button class="season-button" data-season="summer" type="button">Summer</button>
+          <button class="season-button" data-season="autumn" type="button">Autumn</button>
+          <button class="season-button" data-season="winter" type="button">Winter</button>
+        </div>
+
+        <div class="season-tip-panel" id="season-tip-panel"></div>
+      </section>
+
+      <section class="workshop-block workshop-block-spaced">
+        <h2>${workshop.heading}</h2>
+        <p class="panel-intro">${workshop.intro}</p>
+
+        <div class="recipe-grid" id="recipe-grid"></div>
+
+        <div class="recipe-detail-panel" id="recipe-detail-panel">
+          <!-- The selected recipe details are added by JavaScript -->
+        </div>
+      </section>
+    `;
+
+    workshopPanel.querySelectorAll(".season-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        renderSeason(button.dataset.season);
+      });
+    });
+
+    workshopPanel.querySelector("#recipe-grid").addEventListener("click", (event) => {
+      const recipeButton = event.target.closest(".recipe-card[data-recipe-id]");
+
+      if (!recipeButton) {
+        return;
+      }
+
+      activeRecipeId = recipeButton.dataset.recipeId;
+      workshopPanel.querySelectorAll(".recipe-card").forEach((button) => {
+        button.classList.toggle(
+          "is-selected",
+          button.dataset.recipeId === activeRecipeId,
+        );
+      });
+      renderBakeRecipeDetail(activeSeason, activeRecipeId);
+    });
+
+    renderSeason(activeSeason);
+  }
+
+  function renderWorkshop(ideaId) {
+    const workshop = stallTypeWorkshops[ideaId];
+
+    if (!workshop) {
+      return;
+    }
+
+    if (workshop.mode === "seasonal") {
+      renderBakeWorkshop(workshop);
+      return;
+    }
+
+    renderProjectWorkshop(workshop);
   }
 
   function renderIdeaGuide(ideaId) {
@@ -480,6 +1011,8 @@ function setupStallIdeaGuides() {
 
       <p class="idea-detail-tip"><strong>Helpful tip:</strong> ${guide.tip}</p>
     `;
+
+    renderWorkshop(ideaId);
   }
 
   ideaGrid.addEventListener("click", (event) => {
