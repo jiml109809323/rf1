@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stalls for Good | Stall Ideas</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Stalls for Good home">
+        <img class="brand-logo" src="./logo-transparent.png" alt="Stalls for Good logo" />
+        <span class="brand-text">Stalls for Good</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-link" href="./index.html">Home</a>
+        <a class="nav-link is-active" href="./stall-ideas.html">Stall Ideas</a>
+        <a class="nav-link" href="./start-a-stall.html">Start a Stall</a>
+        <a class="nav-link" href="./donate.html">Donate</a>
+        <a class="nav-link" href="./gallery.html">Gallery</a>
+        <a class="nav-link" href="./about.html">About</a>
+      </nav>
+      <a class="button button-primary header-action" href="./start-a-stall.html">🎪 Make a Stall</a>
+      <span class="menu-button" aria-hidden="true">≡</span>
+    </header>
+
+    <div class="site-shell">
+      <main class="stack-layout">
+        <section class="page-header">
+          <p class="eyebrow">⭐ Great ideas for kind stalls</p>
+          <h1 class="page-title">Stall Ideas</h1>
+          <p class="page-subtitle">
+            Pick a season, choose a recipe, or use one of these cheerful stall
+            themes to get started.
+          </p>
+        </section>
+
+        <section class="content-panel">
+          <div class="idea-grid">
+            <article class="idea-card">
+              <div class="idea-image" aria-hidden="true">🧁</div>
+              <div class="idea-copy">
+                <span class="idea-tag">Bake Sale</span>
+                <h3>Bake delicious treats</h3>
+                <p>Decorated cupcakes, brownies, fruit skewers, and lemonade are easy favourites.</p>
+              </div>
+            </article>
+            <article class="idea-card">
+              <div class="idea-image" aria-hidden="true">🎨</div>
+              <div class="idea-copy">
+                <span class="idea-tag">Craft Stall</span>
+                <h3>Make little treasures</h3>
+                <p>Try friendship bracelets, bookmarks, badges, painted stones, or handmade cards.</p>
+              </div>
+            </article>
+            <article class="idea-card">
+              <div class="idea-image" aria-hidden="true">🧸</div>
+              <div class="idea-copy">
+                <span class="idea-tag">Toy Sale</span>
+                <h3>Find toys new homes</h3>
+                <p>Sort clean toys, books, puzzles, or games and add simple price labels.</p>
+              </div>
+            </article>
+            <article class="idea-card">
+              <div class="idea-image" aria-hidden="true">🎮</div>
+              <div class="idea-copy">
+                <span class="idea-tag">Games Stall</span>
+                <h3>Run a mini challenge</h3>
+                <p>Lucky dip, hoop toss, tin-can alley, and hook-a-duck are fun for everyone.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-panel">
+          <h2>When will your stall be?</h2>
+          <p class="panel-intro">
+            Click a season to discover decorating ideas, food ideas, and fun ways
+            to make your stall shine.
+          </p>
+
+          <div class="season-buttons" aria-label="Season selector">
+            <button class="season-button is-active" data-season="spring" type="button">Spring</button>
+            <button class="season-button" data-season="summer" type="button">Summer</button>
+            <button class="season-button" data-season="autumn" type="button">Autumn</button>
+            <button class="season-button" data-season="winter" type="button">Winter</button>
+          </div>
+
+          <div class="season-tip-panel" id="season-tip-panel">
+            <h3 class="tips-title">Spring Ideas</h3>
+            <ul class="tips-list">
+              <li>Sell cupcakes with flowers</li>
+              <li>Lemonade stand</li>
+              <li>Decorate with pastel colours</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="content-panel">
+          <h2>Recipe Ideas</h2>
+          <p class="panel-intro">
+            Choose a season, then click a recipe icon to load the full recipe below.
+          </p>
+
+          <div class="recipe-grid" id="recipe-grid">
+            <!-- Seasonal recipe buttons are added by JavaScript -->
+          </div>
+
+          <div class="recipe-detail-panel" id="recipe-detail-panel">
+            <!-- The selected recipe details are added by JavaScript -->
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">Made by Robyn and Frances ❤️</footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
