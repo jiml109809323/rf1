@@ -83,7 +83,7 @@ img {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0;
   color: var(--purple-dark);
   font-size: clamp(1.25rem, 2.1vw, 2rem);
   font-weight: 900;
@@ -92,14 +92,10 @@ img {
 
 .brand-logo {
   display: block;
-  width: 72px;
-  height: 72px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   flex: 0 0 auto;
-}
-
-.brand-text {
-  max-width: 7rem;
 }
 
 .site-nav {
@@ -1006,13 +1002,8 @@ h3 {
   }
 
   .brand-logo {
-    width: 54px;
-    height: 54px;
-  }
-
-  .brand-text {
-    max-width: 6rem;
-    font-size: 1.1rem;
+    width: 72px;
+    height: 72px;
   }
 
   .header-action {
